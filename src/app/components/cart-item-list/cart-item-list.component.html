@@ -1,0 +1,5 @@
+<div class="cart-list">
+    <div *ngFor="let item of cartItems">
+        <app-cart-item [cartItem]="item" [quantity]="item.quantity" (delete)="deleteItem($event)"></app-cart-item>
+    </div>
+</div>

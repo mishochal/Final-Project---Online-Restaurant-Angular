@@ -1,0 +1,47 @@
+<div class="filter-toggle">
+    <input type="checkbox" id="filter-toggle-checkbox" [(ngModel)]="isOpen">
+    <label for="filter-toggle-checkbox">
+        <div class="icon-container">
+            <i class="fa-solid fa-filter fa-lg"></i>
+        </div>
+        <span>Filter</span>
+    </label>
+</div>
+
+<div class="filter-container">
+    <div class="filter">
+        <div class="filter-header">
+            <p class="filter-title">Filter</p>
+            <div class="close-btn" (click)="closeFilter()">
+                <i class="fa-solid fa-xmark fa-lg"></i>
+            </div>
+        </div>
+
+        <form (ngSubmit)="filterProducts()" #filterForm="ngForm">
+            <div class="input-container range-container">
+                <div class="spiciness-label">
+                    <p>Spiciness:</p>
+                    <p class="spiciness-level">{{ spicinessLevels[filterData.spiciness] }}</p>
+                </div>
+                <input type="range" min="0" max="5" id="spiciness" name="spiciness" value="0"
+                    [(ngModel)]="filterData.spiciness">
+            </div>
+
+            <div class="input-container checkbox-container">
+                <input type="checkbox" id="nuts" value="nuts" name="nuts" [(ngModel)]="filterData.nuts">
+                <label for="nuts">No Nuts</label>
+            </div>
+
+            <div class="input-container checkbox-container">
+                <input type="checkbox" id="vegetarian" name="vegetarian" value="vegetarian"
+                    [(ngModel)]="filterData.vegetarian">
+                <label for="vegetarian">Vegetarian</label>
+            </div>
+
+            <div class="buttons">
+                <button type="button" class="reset-btn form-btn" (click)="resetFilter()">Reset</button>
+                <button type="submit" class="apply-btn form-btn">Apply Filter</button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+header {
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.8);
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+    border-bottom: 5px solid red;
+
+    .container {
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        a {
+
+            text-decoration: none;
+        }
+
+        .title {
+            color: #ddd;
+        }
+
+        .right {
+
+            a {
+                display: flex;
+                gap: 8px;
+                align-items: center;
+                padding: 8px 10px;
+                background-color: red;
+                color: white;
+                font-size: 16px;
+                border-radius: 5px;
+                border: none;
+                transition: background-color 0.25s ease-in-out;
+
+                &:hover {
+                    background-color: rgb(255, 57, 57);
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 560px) {
+    header .container .title {
+        font-size: 26px;
+    }
+}

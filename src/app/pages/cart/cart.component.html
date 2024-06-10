@@ -1,0 +1,25 @@
+<main class="cart-page">
+    <section class="hero">
+        <app-cart-hero></app-cart-hero>
+    </section>
+    <section class="cart-body">
+        <h4 class="title">Your Cart</h4>
+        <div class="cart-items-header">
+            <div class="left">
+                <h4>Product</h4>
+            </div>
+            <div class="right">
+                <h4 class="qty-header small-header">Qty</h4>
+                <h4 class="small-header">Price</h4>
+                <h4 class="small-header">Total</h4>
+            </div>
+        </div>
+        <div class="cart-items">
+            <app-cart-item-list></app-cart-item-list>
+        </div>
+        <div class="ordering-details">
+            <h5 class="total-price">Total Price: {{ totalPrice | currency }}</h5>
+            <button class="order-btn">Order Now</button>
+        </div>
+    </section>
+</main>

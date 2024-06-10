@@ -1,0 +1,221 @@
+.cart-item {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    transition: background-color 0.2s ease-in-out;
+
+    .left {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        .img-container {
+            max-width: 120px;
+
+            img {
+                width: 100%;
+            }
+
+            .name {
+                text-align: left;
+            }
+        }
+    }
+
+    .right {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+
+        .item-details {
+            display: flex;
+            align-items: center;
+            width: 400px;
+
+            .detail {
+                width: calc(100% / 3);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .quantity {
+                display: flex;
+                align-items: center;
+                gap: 8px;
+                border: 1px solid #999;
+                padding: 5px;
+                width: fit-content;
+
+                .change-btn {
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    width: 17px;
+                    height: 17px;
+                    border-radius: 50%;
+                    background-color: #bbb;
+                    cursor: pointer;
+                    transition: background-color 0.2s ease-in-out;
+
+                    span {
+                        font-size: 19.5px;
+                    }
+
+                    &:hover {
+                        background-color: #aaa;
+                    }
+
+                }
+
+                input {
+                    border: none;
+                    outline: none;
+                    width: 20px;
+                    background-color: transparent;
+                    text-align: center;
+                    font-weight: bold;
+                    font-size: 16px;
+
+                    &::-webkit-outer-spin-button,
+                    &::-webkit-inner-spin-button {
+                        -webkit-appearance: none;
+                        margin: 0;
+                    }
+                }
+            }
+        }
+
+        .delete-btn {
+            width: 18px;
+            height: 18px;
+            position: relative;
+            cursor: pointer;
+
+            &::before,
+            &::after {
+                content: "";
+                width: calc(100% * 1.4142);
+                height: 4.5px;
+                border-radius: 5px;
+                display: block;
+                background-color: black;
+                position: absolute;
+                transition: background-color 0.2s ease;
+                transform-origin: left center;
+            }
+
+            &::before {
+                top: -2.25px;
+                transform: rotate(45deg);
+            }
+
+            &::after {
+                bottom: -2.25px;
+                transform: rotate(-45deg);
+            }
+
+            &:hover::before,
+            &:hover::after {
+                background-color: red;
+            }
+        }
+    }
+
+    &:hover {
+        background-color: #eee;
+    }
+}
+
+@media screen and (max-width: 924px) {
+    .cart-item {
+        gap: 25px;
+
+        .right .item-details {
+            width: 320px;
+        }
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .cart-item {
+        padding: 20px 10px;
+
+        .left {
+            flex-direction: column-reverse;
+            align-items: flex-start;
+            gap: 5px;
+
+            .name {
+                min-width: 100px;
+                font-size: 14px;
+            }
+        }
+
+        .right .item-details {
+            width: 280px;
+        }
+    }
+}
+
+@media screen and (max-width: 560px) {
+    .cart-item {
+        gap: 10px;
+
+        .right {
+            gap: 8px;
+
+            .delete-btn {
+                width: 14px;
+                height: 14px;
+
+                &::before,
+                &::after {
+                    height: 3.5px;
+                }
+
+                &::before {
+                    top: -1.75px;
+                }
+
+                &::after {
+                    bottom: -1.75px;
+                }
+            }
+
+            .item-details {
+                width: 240px;
+
+                p {
+                    font-size: 14.5px;
+                }
+
+                .quantity {
+                    gap: 4px;
+                    padding: 5px 3px;
+
+                    .change-btn {
+                        width: 14px;
+                        height: 14px;
+
+                        span {
+                            font-size: 16px;
+                        }
+                    }
+
+                    input {
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .cart-item .right .item-details {
+        width: 200px;
+    }
+}

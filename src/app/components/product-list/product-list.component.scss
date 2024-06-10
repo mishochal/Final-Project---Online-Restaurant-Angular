@@ -1,0 +1,23 @@
+.products {
+    display: grid;
+    grid-template-columns: repeat(3, calc((100% - 2 * 20px) / 3));
+    gap: 40px 20px;
+
+    app-product {
+        display: block;
+        height: 100%;
+    }
+}
+
+@media screen and (max-width: 930px) {
+    .products {
+        grid-template-columns: repeat(2, calc((100% - 20px) / 2));
+    }
+}
+
+@media screen and (max-width: 720px) {
+    .products {
+        position: relative;
+        top: 65px;
+    }
+}

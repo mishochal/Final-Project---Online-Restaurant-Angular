@@ -1,0 +1,17 @@
+.hero-main {
+    background-image: url("https://wallpapers.com/images/featured/food-photography-background-iyvy1e8yztvry3g8.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    h2 {
+        font-size: 50px;
+        color: white;
+        text-shadow: 3px 3px black;
+    }
+}

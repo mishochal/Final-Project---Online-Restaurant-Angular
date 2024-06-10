@@ -1,0 +1,15 @@
+<main class="home-main">
+    <section class="hero-section">
+        <app-hero></app-hero>
+    </section>
+    <section class="ordering">
+        <h3 class="ordering-title">Categories</h3>
+        <div class="categories">
+            <app-categories [categories]="categories" (selected)="selectCategory($event)"></app-categories>
+        </div>
+        <div class="products">
+            <app-filter (filter)="filterProducts($event)"></app-filter>
+            <app-product-list [products]="products"></app-product-list>
+        </div>
+    </section>
+</main>
