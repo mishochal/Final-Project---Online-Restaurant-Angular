@@ -9,7 +9,7 @@
         </div>
         <div class="products">
             <app-filter (filter)="filterProducts($event)"></app-filter>
-            <app-product-list [products]="products"></app-product-list>
+            <app-product-list [products]="products" [isLoaded]="isLoaded"></app-product-list>
         </div>
     </section>
 </main>

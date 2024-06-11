@@ -24,6 +24,7 @@ export class HomeComponent {
     categories: ICategory[] = [];
     products: IProduct[] = [];
     selectedCategory: number = 0;
+    isLoaded: boolean = false;
 
     constructor(
         private categoriesService: CategoriesService,
@@ -42,27 +43,58 @@ export class HomeComponent {
     }
 
     getProducts(): void {
-        this.productsService.getProducts().subscribe(products => this.products = products);
+        this.loadAllProducts();
     }
 
     selectCategory(id: number) {
-        this.products = [];
-        this.selectedCategory = id;
-        console.log(this.filterComponent.isFiltered);
-        if (this.filterComponent.isFiltered) {
-            this.filterProductsService.filterProducts(this.filterComponent.filterData, id)
-                .subscribe(filtered => this.products = filtered);
-        } else {
-            if (id === 0) {
-                this.productsService.getProducts().subscribe(products => this.products = products);
+        if (this.selectedCategory !== id) {
+            this.resetProucts();
+            this.selectedCategory = id;
+            if (this.filterComponent.isFiltered) {
+                this.loadFiltered(this.filterComponent.filterData, id);
             } else {
-                this.getCategoryService.getCategory(id).subscribe(category => this.products = category.products);
+                this.loadByCategories(id);
             }
         }
     }
 
     filterProducts(filterData: IFilterData) {
-        this.filterProductsService.filterProducts(filterData, this.selectedCategory)
-            .subscribe(filtered => this.products = filtered)
+        this.resetProucts();
+        this.loadFiltered(filterData, this.selectedCategory);
+    }
+
+    resetProucts() {
+        this.isLoaded = false;
+        this.products = [];
+    }
+
+    loadFiltered(filterData: IFilterData, id: number) {
+        this.filterProductsService.filterProducts(filterData, id)
+            .subscribe(filtered => {
+                this.products = filtered;
+                this.isLoaded = true;
+            });
+    }
+
+    loadByCategories(id: number) {
+        if (id === 0) {
+            this.loadAllProducts();
+        } else {
+            this.loadSingleCategory(id);
+        }
+    }
+
+    loadAllProducts() {
+        this.productsService.getProducts().subscribe(products => {
+            this.products = products;
+            this.isLoaded = true;
+        });
+    }
+
+    loadSingleCategory(id: number) {
+        this.getCategoryService.getCategory(id).subscribe(category => {
+            this.products = category.products
+            this.isLoaded = true;
+        });
     }
 }

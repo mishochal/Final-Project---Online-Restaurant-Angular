@@ -2,13 +2,12 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { IBasket } from '../models/basket.model';
-import { tap } from 'rxjs/operators';
 import { IPartialProduct } from '../models/partial-product.model';
-import { IProduct } from '../models/product.model';
 
 @Injectable({
     providedIn: 'root'
 })
+
 export class BasketsService {
     private apiUrl = "https://restaurant.stepprojects.ge/api";
 
@@ -46,7 +45,8 @@ export class BasketsService {
         const url = `${this.apiUrl}/Baskets/UpdateBasket`;
 
         const currItems = this.basketItemsSubject.value;
-        const updatedItems = currItems.map(item => item.product.id === updatedBasketItem.product.id ? updatedBasketItem : item);
+        const updatedItems = currItems
+            .map(item => item.product.id === updatedBasketItem.product.id ? updatedBasketItem : item);
         this.basketItemsSubject.next(updatedItems);
         this.calculateTotal(updatedItems);
 

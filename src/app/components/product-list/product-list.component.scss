@@ -9,6 +9,11 @@
     }
 }
 
+
+/*******************************/
+/****DIFFERENT SCREEN SIZES*****/
+/*******************************/
+
 @media screen and (max-width: 930px) {
     .products {
         grid-template-columns: repeat(2, calc((100% - 20px) / 2));

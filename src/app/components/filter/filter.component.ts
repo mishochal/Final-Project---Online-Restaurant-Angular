@@ -11,7 +11,7 @@ import { IFilterData } from '../../models/filter-data.model';
     styleUrl: './filter.component.scss'
 })
 export class FilterComponent {
-    @Output() filter = new EventEmitter<IFilterData>;
+    @Output() filter = new EventEmitter<IFilterData>();
 
     public isFiltered: boolean = false;
     isOpen: boolean = false;

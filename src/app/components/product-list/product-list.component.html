@@ -1,3 +1,9 @@
+<div *ngIf="!isLoaded" class="products">
+    <div class="product" *ngFor="let loader of loaders">
+        <app-product [isLoaded]="false"></app-product>
+    </div>
+</div>
+
 <div class="products">
     <div class="product" *ngFor="let product of products">
         <app-product [product]="product" (add)="addToCart($event)"></app-product>

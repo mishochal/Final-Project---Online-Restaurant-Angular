@@ -79,6 +79,32 @@
     }
 }
 
+/*******************************/
+/*********L O A D E R***********/
+/*******************************/
+
+.card {
+
+    .loading,
+    .card-body .ordering-details .add-to-cart.loading {
+        background-color: #bbb;
+        border-radius: 10px;
+        color: #bbb;
+    }
+}
+
+.card {
+    .food-image.loading {
+        width: 100%;
+        height: 200px;
+        border-radius: 0;
+    }
+}
+
+/*******************************/
+/****DIFFERENT SCREEN SIZES*****/
+/*******************************/
+
 @media screen and (max-width: 1150px) {
     .card {
         .card-body {

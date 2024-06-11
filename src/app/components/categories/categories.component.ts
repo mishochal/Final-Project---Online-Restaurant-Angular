@@ -11,12 +11,12 @@ import { FormsModule } from '@angular/forms';
     styleUrl: './categories.component.scss'
 })
 export class CategoriesComponent {
-    @Input() categories: ICategory[] | undefined;
+    @Input() categories!: ICategory[];
     @Output() selected = new EventEmitter<number>();
 
     selectedId: number = 0;
-
     isOpen: boolean = false;
+
     closeCategories() {
         this.isOpen = false;
     }

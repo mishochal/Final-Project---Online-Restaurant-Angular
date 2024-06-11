@@ -14,8 +14,10 @@ import { IBasket } from '../../models/basket.model';
     styleUrl: './product-list.component.scss'
 })
 export class ProductListComponent {
-    @Input() products: IProduct[] | undefined;
-    iterations = Array(12).fill(0);
+    @Input() products!: IProduct[];
+    @Input() isLoaded!: boolean;
+
+    loaders = Array(12).fill(0);
 
     constructor(private basketService: BasketsService) { }
 

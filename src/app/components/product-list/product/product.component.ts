@@ -11,6 +11,8 @@ import { CommonModule } from '@angular/common';
 })
 export class ProductComponent {
     @Input() product!: IProduct;
+    @Input() isLoaded: boolean = true;
+
     @Output() add = new EventEmitter<IProduct>();
 
     spicinessLevels: { [key: string]: string } = {
