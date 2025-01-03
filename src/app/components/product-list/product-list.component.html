@@ -1,11 +1,16 @@
-<div *ngIf="!isLoaded" class="products">
-    <div class="product" *ngFor="let loader of loaders">
-        <app-product [isLoaded]="false"></app-product>
+<div *ngIf="!isLoaded" class="loader">
+    <div class="lds-ring">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
     </div>
 </div>
 
-<div class="products">
+<div *ngIf="isLoaded && products.length > 0" class="products">
     <div class="product" *ngFor="let product of products">
         <app-product [product]="product" (add)="addToCart($event)"></app-product>
     </div>
 </div>
+
+<h4 *ngIf="isLoaded && products.length === 0" class="no-prods">There are no such products!</h4>

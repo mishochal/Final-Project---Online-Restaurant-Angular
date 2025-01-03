@@ -50,17 +50,21 @@ export class HomeComponent {
         if (this.selectedCategory !== id) {
             this.resetProucts();
             this.selectedCategory = id;
-            if (this.filterComponent.isFiltered) {
-                this.loadFiltered(this.filterComponent.filterData, id);
-            } else {
-                this.loadByCategories(id);
-            }
+            setTimeout(() => {
+                if (this.filterComponent.isFiltered) {
+                    this.loadFiltered(this.filterComponent.filterData, id);
+                } else {
+                    this.loadByCategories(id);
+                }
+            }, 250)
         }
     }
 
     filterProducts(filterData: IFilterData) {
         this.resetProucts();
-        this.loadFiltered(filterData, this.selectedCategory);
+        setTimeout(() => {
+            this.loadFiltered(filterData, this.selectedCategory);
+        }, 250)
     }
 
     resetProucts() {
